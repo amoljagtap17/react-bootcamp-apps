@@ -1,0 +1,54 @@
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts' !default;
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+@import 'scss/shake_animation.scss';
+
+.dice {
+  font-size: 10em;
+  padding: 0.25em;
+  color: slateblue;
+
+  @extend %fa-icon;
+  @extend .fas;
+
+  &-one {
+    &:before {
+      content: fa-content($fa-var-dice-one);
+    }
+  }
+
+  &-two {
+    &:before {
+      content: fa-content($fa-var-dice-two);
+    }
+  }
+
+  &-three {
+    &:before {
+      content: fa-content($fa-var-dice-three);
+    }
+  }
+
+  &-four {
+    &:before {
+      content: fa-content($fa-var-dice-four);
+    }
+  }
+
+  &-five {
+    &:before {
+      content: fa-content($fa-var-dice-five);
+    }
+  }
+
+  &-six {
+    &:before {
+      content: fa-content($fa-var-dice-six);
+    }
+  }
+}
+
+.shaking {
+  animation-name: wobble;
+  animation-duration: 1s;
+}
