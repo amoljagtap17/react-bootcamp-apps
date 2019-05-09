@@ -1,5 +1,5 @@
 import React from 'react'
-import RollDice from 'apps/RollDiceApp/components/RollDice/RollDice'
+import RollDice from './components/RollDice/RollDice'
 
 const RollDiceApp = () => (
   <div>

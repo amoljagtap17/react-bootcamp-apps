@@ -1,9 +1,9 @@
 const getRandomValueFromArray = inputArray => {
-  return inputArray[
-    Math.floor(
-      Math.random() * inputArray.length
-    )
-  ]
+  const randomIndex = Math.floor(
+    Math.random() * inputArray.length
+  )
+
+  return inputArray[randomIndex]
 }
 
 export {

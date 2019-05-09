@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
-import styles from 'apps/RollDiceApp/components/Dice/Dice.module.scss'
+import styles from './Dice.module.scss'
 
 const CX = classNames.bind(styles)
 

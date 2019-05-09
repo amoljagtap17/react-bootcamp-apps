@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { getRandomValueFromArray } from 'utils/utils'
-import Dice from 'apps/RollDiceApp/components/Dice/Dice'
-import styles from 'apps/RollDiceApp/components/RollDice/RollDice.module.scss'
+import Dice from '../Dice/Dice'
+import styles from './RollDice.module.scss'
 
 const RollDice = ({ sides }) => {
   const [dice1, setDice1] = useState('one')
