@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { randomWord } from 'utils/wordsData'
 import styles from './Hangman.module.scss'
-
 import img0 from '../../assets/images/0.jpg'
 import img1 from '../../assets/images/1.jpg'
 import img2 from '../../assets/images/2.jpg'
@@ -10,23 +9,15 @@ import img4 from '../../assets/images/4.jpg'
 import img5 from '../../assets/images/5.jpg'
 import img6 from '../../assets/images/6.jpg'
 
-const initialState = {
-  numWrong: 0,
-  guessed: new Set(),
-  answer: randomWord()
-}
-
 const Hangman = ({ maxWrong, images }) => {
-  const [state, setState] = useState(initialState)
-  const { answer, guessed, numWrong } = state
+  const [numWrong, setNumWrong] = useState(0)
+  const [guessed, setGuessed] = useState(new Set())
+  const [answer, setAnswer] = useState(randomWord())
 
   const reset = () => {
-    setState(prevState => ({
-      ...prevState,
-      numWrong: 0,
-      guessed: new Set(),
-      answer: randomWord()
-    }))
+    setNumWrong(0)
+    setGuessed(new Set())
+    setAnswer(randomWord())
   }
 
   /** guessedWord: show current-state of word:
@@ -42,12 +33,10 @@ const Hangman = ({ maxWrong, images }) => {
   */
   const handleGuess = evt => {
     const letter = evt.target.value
-
-    setState(prevState => ({
-      ...prevState,
-      guessed: prevState.guessed.add(letter),
-      numWrong: prevState.numWrong + (answer.includes(letter) ? 0 : 1)
-    }))
+    setGuessed(prevGuessed => prevGuessed.add(letter))
+    setNumWrong(
+      prevNumWrong => prevNumWrong + (answer.includes(letter) ? 0 : 1)
+    )
   }
 
   /** generateButtons: return array of letter buttons to render */
@@ -81,11 +70,9 @@ const Hangman = ({ maxWrong, images }) => {
         {!gameOver ? guessedWord() : answer}
       </p>
       <p className={styles['hangman-btns']}>{gameState}</p>
-      <p className={styles['hangman-btn-reset']}>
-        <button onClick={reset}>
-          Restart?
-        </button>
-      </p>
+      <button id="reset" onClick={reset}>
+        Restart?
+      </button>
     </div>
   )
 }
